@@ -11,7 +11,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "stream": "^0.0.3"
   },
   "devDependencies": {
     "@types/node": "^22.10.10"
