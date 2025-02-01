@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import { HfInference } from "@huggingface/inference"
+import { getSystemPrompt } from './prompt.js';
 dotenv.config();
 
 const client = new HfInference(process.env.HUGGINGFACE_API_KEY);
@@ -16,7 +17,8 @@ async function  getAnswer(input: string) {
         ],
         temperature: 0.5,
         max_tokens: 1000,
-        top_p: 0.7
+        top_p: 0.7,
+        system: getSystemPrompt(),
     });
     
     for await (const chunk of stream) {
@@ -31,4 +33,4 @@ async function  getAnswer(input: string) {
 	
 }
 
-getAnswer("What is the capital ddss why say it in a funny way");
+getAnswer("how many ppl visited maha kumb this year in india");
